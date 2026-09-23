@@ -132,8 +132,8 @@ class DashboardController extends Controller
         'total_amount_month'      => Transaction::where('type', 'item-buy')->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->sum('amount'),
         'total_refund_month'      => Transaction::where('type', 'item-refund')->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->sum('amount'),
 
-        'total_amount_last_month' => Transaction::where('type', 'item-buy')->whereDate('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'))->sum('amount'),
-        'total_refund_last_month' => Transaction::where('type', 'item-refund')->whereDate('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'))->sum('amount'),
+        'total_amount_last_month' => Transaction::where('type', 'item-buy')->whereMonth('created_at', now()->subMonth()->month)->whereYear('created_at', now()->subMonth()->year)->sum('amount'),
+        'total_refund_last_month' => Transaction::where('type', 'item-refund')->whereMonth('created_at', now()->subMonth()->month)->whereYear('created_at', now()->subMonth()->year)->sum('amount'),
 
         'total_amount_yesterday'  => Transaction::where('type', 'item-buy')->whereDate('created_at', date('Y-m-d', strtotime('-1 day')))->sum('amount'),
         'total_refund_yesterday'  => Transaction::where('type', 'item-refund')->whereDate('created_at', date('Y-m-d', strtotime('-1 day')))->sum('amount'),
@@ -183,8 +183,8 @@ class DashboardController extends Controller
         'total_amount_month'      => Transaction::where('type', 'boosting-buy')->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->sum('amount'),
         'total_refund_month'      => Transaction::where('type', 'boosting-refund')->whereMonth('created_at', date('m'))->whereYear('created_at', date('Y'))->sum('amount'),
 
-        'total_amount_last_month' => Transaction::where('type', 'boosting-buy')->whereDate('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'))->sum('amount'),
-        'total_refund_last_month' => Transaction::where('type', 'boosting-refund')->whereDate('created_at', now()->subMonth()->format('m'))->whereYear('created_at', now()->subMonth()->format('Y'))->sum('amount'),
+        'total_amount_last_month' => Transaction::where('type', 'boosting-buy')->whereMonth('created_at', now()->subMonth()->month)->whereYear('created_at', now()->subMonth()->year)->sum('amount'),
+        'total_refund_last_month' => Transaction::where('type', 'boosting-refund')->whereMonth('created_at', now()->subMonth()->month)->whereYear('created_at', now()->subMonth()->year)->sum('amount'),
 
         'total_amount_yesterday'  => Transaction::where('type', 'boosting-buy')->whereDate('created_at', date('Y-m-d', strtotime('-1 day')))->sum('amount'),
         'total_refund_yesterday'  => Transaction::where('type', 'boosting-refund')->whereDate('created_at', date('Y-m-d', strtotime('-1 day')))->sum('amount'),
@@ -221,8 +221,8 @@ class DashboardController extends Controller
         ->sum('cost_amount');
 
       $stats['accounts']['total_profit_last_month'] = $stats['accounts']['total_amount_yesterday'] - Transaction::where('type', 'account-buy')
-        ->whereDate('created_at', now()->subMonth()->format('m'))
-        ->whereYear('created_at', now()->subMonth()->format('Y'))
+        ->whereMonth('created_at', now()->subMonth()->month)
+        ->whereYear('created_at', now()->subMonth()->year)
         ->sum('cost_amount');
 
 
@@ -284,8 +284,8 @@ class DashboardController extends Controller
       //   ->whereDate('created_at', date('Y-m-d', strtotime('-1 day')))
       //   ->sum('cost_amount');
       $stats['accounts_v2']['total_profit_last_month'] = $stats['accounts_v2']['total_amount_yesterday'] - Transaction::where('type', 'account-v2-buy')
-        ->whereMonth('created_at', date('m', strtotime('-1 month')))
-        ->whereYear('created_at', date('Y'))
+        ->whereMonth('created_at', now()->subMonth()->month)
+        ->whereYear('created_at', now()->subMonth()->year)
         ->sum('cost_amount');
 
 
