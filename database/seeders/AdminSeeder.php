@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Schema;
 use App\Models\User;
 
 class AdminSeeder extends Seeder
@@ -19,29 +18,16 @@ class AdminSeeder extends Seeder
         }
 
         $user = new User();
-        $user->name = 'Admin ShopNATV';
-        $user->email = $email;
-        $user->password = Hash::make('Natv@2026#Admin');
-
-        // Tự động phát hiện cột role
-        if (Schema::hasColumn('users', 'role')) {
-            $user->role = 'admin';
-        }
-        if (Schema::hasColumn('users', 'is_admin')) {
-            $user->is_admin = 1;
-        }
-        if (Schema::hasColumn('users', 'level')) {
-            $user->level = 1;
-        }
-        if (Schema::hasColumn('users', 'balance')) {
-            $user->balance = 0;
-        }
-        if (Schema::hasColumn('users', 'total_deposit')) {
-            $user->total_deposit = 0;
-        }
-        if (Schema::hasColumn('users', 'status')) {
-            $user->status = 'active';
-        }
+        $user->username      = 'admin';
+        $user->fullname      = 'Admin ShopNATV';
+        $user->email         = $email;
+        $user->password      = Hash::make('Natv@2026#Admin');
+        $user->phone         = '0966982422';
+        $user->balance       = 0;
+        $user->total_deposit = 0;
+        $user->total_withdraw = 0;
+        $user->status        = 'active';
+        $user->role          = 'admin';
 
         $user->save();
 
