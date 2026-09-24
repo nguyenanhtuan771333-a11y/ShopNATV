@@ -1,8 +1,6 @@
 @props(['pageTitle' => 'Default Title', 'postTitle' => null, 'meta_seo' => null])
 
-<!-- Dev By CMSNT.CO | FB.COM/CMSNT.CO | ZALO.ME/0947838128 | MMO Solution -->
-<!-- Version: 1.0.1-p1 -->
-<!-- Dev Status: Stable -->
+<!-- Dev By ShopNATV -->
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" dir="ltr" class="light layout-boxed null nav-floating horizontalMenu">
@@ -33,9 +31,6 @@
   <meta name="application-name" content="{{ setting('title') }}">
   <meta property="og:image" content="{{ asset(setting('logo_share')) }}">
   <meta property="og:image:secure_url" content="{{ asset(setting('logo_share')) }}">
-  {{-- <meta property="og:image:width" content="128">
-  <meta property="og:image:height" content="128"> --}}
-  {{-- <meta property="og:image:type" content="image/png"> --}}
   <meta property="og:image:alt" content="{{ setting('title') }}">
   <meta property="og:title" content="{{ setting('title') }}">
   <meta property="og:site_name" content="{{ setting('title') }}">
@@ -113,6 +108,11 @@
 </head>
 
 <body class="font-inter dashcode-app" id="body_class">
+  <!-- Banner liên hệ Zalo -->
+  <div style="background: linear-gradient(90deg, #0068ff, #00b4ff); color: white; text-align: center; padding: 12px; font-weight: bold; font-size: 16px; position: sticky; top: 0; z-index: 9999; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+    📞 Liên hệ Zalo: <a href="https://zalo.me/0966982422" target="_blank" style="color: #ffff00; text-decoration: underline;">0966982422</a> để được hỗ trợ mua acc!
+  </div>
+
   <div class="app-wrapper">
 
     <!-- BEGIN: Sidebar Navigation -->
@@ -261,4 +261,4 @@
 
 </html>
 
-<!-- Dev By CMSNT.CO | FB.COM/CMSNT.CO | ZALO.ME/0947838128 | MMO Solution -->
+<!-- Dev By ShopNATV -->
