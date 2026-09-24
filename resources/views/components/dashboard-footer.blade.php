@@ -47,7 +47,7 @@
       <div class="col-span-2 py-2 md:col-span-1">
         <div class="flex flex-col items-center">
           <a href="{{ route('home') }}">
-            <img src="{{ setting('logo_dark') ?? '/_assets/images/cmsnt_dark.png' }}" alt="{{ setting('title') }}" class="mb-2 max-w-[170px]">
+            <img src="{{ setting('logo_dark') ?? '/_assets/images/cmsnt_dark.svg' }}" alt="{{ setting('title') }}" class="mb-2 max-w-[170px]">
           </a>
           @if (isset($shop_info['footer_text_1']))
             <span class="text-center">{!! $shop_info['footer_text_1'] !!}</span>
